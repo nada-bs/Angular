@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Suggestion } from '../../models/suggestion';
+import { Suggestion } from '../../../models/suggestion';
 
 @Component({
   selector: 'app-list-suggestion',
@@ -8,7 +8,7 @@ import { Suggestion } from '../../models/suggestion';
 })
 export class ListSuggestionComponent {
 
-  searchText: string = '';
+  searchTerm: string = '';
   favorites: Suggestion[] = [];
 
   suggestions: Suggestion[] = [
@@ -62,8 +62,8 @@ export class ListSuggestionComponent {
 
   filteredSuggestions() {
     return this.suggestions.filter(s =>
-      s.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      s.category.toLowerCase().includes(this.searchText.toLowerCase())
+      s.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      s.category.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 }

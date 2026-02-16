@@ -1,0 +1,133 @@
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: #333;
+}
+
+.search-bar {
+  margin: 30px 0;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.suggestion {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.suggestion:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.suggestion h4 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  color: #2d3748;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 10px;
+}
+
+.category {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.description {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 10px 0;
+  transition: transform 0.2s;
+}
+
+.status-badge.accepte {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.status-badge.refuse {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.like-btn, .favorite-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.like-btn {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+.like-btn:hover {
+  background: #cbd5e0;
+  transform: scale(1.05);
+}
+
+.favorite-btn {
+  background: #faf089;
+  color: #744210;
+}
+
+.favorite-btn:hover {
+  background: #f6e05e;
+  transform: scale(1.05);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 20px 0;
+}

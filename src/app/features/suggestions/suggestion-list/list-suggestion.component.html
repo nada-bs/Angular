@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Campus Ideas</h1>
+  <h2>I. liste des suggestions</h2>
+  <h3>Rédacteur : une suggestion</h3>
+
+  <div class="search-bar">
+    <input 
+      type="text" 
+      [(ngModel)]="searchTerm"
+      placeholder="Rechercher par titre ou catégorie"
+    >
+  </div>
+
+  <!-- Liste des suggestions filtrées -->
+  <div class="suggestion" *ngFor="let suggestion of filteredSuggestions()">
+    <h4>{{ suggestion.title }}</h4>
+    <div class="meta">
+      <span class="category">{{ suggestion.category }}</span> :
+      <span class="date">{{ suggestion.date | date:'d MMM yyyy' }}</span>
+    </div>
+    <p class="description">{{ suggestion.description }}</p>
+
+    <!-- Badge de statut avec libellé personnalisé -->
+    <div 
+      class="status-badge" 
+       [ngClass]="{
+    'accepte': suggestion.status === 'acceptee',
+    'refuse': suggestion.status === 'refusee'
+  }"
+    >
+     <ng-container [ngSwitch]="suggestion.status">
+    <span *ngSwitchCase="'acceptee'">ACCEPTER</span>
+    <span *ngSwitchCase="'refusee'">REFUSE</span>
+    <span *ngSwitchDefault>EN ATTENTE</span>
+  </ng-container>
+    </div>
+
+    <!-- Boutons Like et Ajouter aux favoris (cachés si statut = refuse) -->
+    <div class="actions" *ngIf="suggestion.status !== 'refuse'">
+      <button (click)="like(suggestion)" class="like-btn">
+        👍 Like {{ suggestion.nbLikes }}
+      </button>
+      <button (click)="addToFavorites(suggestion)" class="favorite-btn">
+        Ajouter aux favoris
+      </button>
+    </div>
+    <hr>
+  </div>
+</div>
