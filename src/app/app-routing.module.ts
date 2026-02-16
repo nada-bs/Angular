@@ -12,6 +12,7 @@ const routes: Routes = [
     path: 'suggestions',
     loadChildren: () => import('./features/suggestions/suggestions.module').then(m => m.SuggestionsModule)
   },
+  
   { path: '**', component: NotfoundComponent }
 ];
 

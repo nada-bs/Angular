@@ -131,3 +131,18 @@ hr {
   background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
   margin: 20px 0;
 }
+
+.details-btn {
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-left: 10px;
+}
+.details-btn:hover {
+  background: #3182ce;
+}

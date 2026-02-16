@@ -3,6 +3,7 @@
   <h2>I. liste des suggestions</h2>
   <h3>Rédacteur : une suggestion</h3>
 
+  <!-- Barre de recherche -->
   <div class="search-bar">
     <input 
       type="text" 
@@ -23,25 +24,29 @@
     <!-- Badge de statut avec libellé personnalisé -->
     <div 
       class="status-badge" 
-       [ngClass]="{
-    'accepte': suggestion.status === 'acceptee',
-    'refuse': suggestion.status === 'refusee'
-  }"
+      [ngClass]="{
+        'accepte': suggestion.status === 'acceptee',
+        'refuse': suggestion.status === 'refusee'
+      }"
     >
-     <ng-container [ngSwitch]="suggestion.status">
-    <span *ngSwitchCase="'acceptee'">ACCEPTER</span>
-    <span *ngSwitchCase="'refusee'">REFUSE</span>
-    <span *ngSwitchDefault>EN ATTENTE</span>
-  </ng-container>
+      <ng-container [ngSwitch]="suggestion.status">
+        <span *ngSwitchCase="'acceptee'">ACCÉTEZ</span>
+        <span *ngSwitchCase="'refusee'">RELISELL</span>
+        <span *ngSwitchDefault>EN ATTENTE</span>
+      </ng-container>
     </div>
 
-    <!-- Boutons Like et Ajouter aux favoris (cachés si statut = refuse) -->
-    <div class="actions" *ngIf="suggestion.status !== 'refuse'">
+    <!-- Boutons Like, Favoris et Détails (cachés si statut = refusee) -->
+    <div class="actions" *ngIf="suggestion.status !== 'refusee'">
       <button (click)="like(suggestion)" class="like-btn">
         👍 Like {{ suggestion.nbLikes }}
       </button>
       <button (click)="addToFavorites(suggestion)" class="favorite-btn">
         Ajouter aux favoris
+      </button>
+      <!-- Bouton Détails pour navigation -->
+      <button [routerLink]="['/suggestions', suggestion.id]" class="details-btn">
+        Détails
       </button>
     </div>
     <hr>

@@ -1,1 +1,39 @@
-<p>suggestion-details works!</p>
+<div class="details-container" *ngIf="suggestion; else notFound">
+  <h2>{{ suggestion.title }}</h2>
+  
+  <div class="detail-item">
+    <strong>Catégorie :</strong> {{ suggestion.category }}
+  </div>
+  
+  <div class="detail-item">
+    <strong>Date :</strong> {{ suggestion.date | date:'fullDate' }}
+  </div>
+  
+  <div class="detail-item">
+    <strong>Description :</strong>
+    <p>{{ suggestion.description }}</p>
+  </div>
+  
+  <div class="detail-item">
+    <strong>Statut :</strong>
+    <span class="status-badge" [ngClass]="{
+      'accepte': suggestion.status === 'acceptee',
+      'refuse': suggestion.status === 'refusee'
+    }">
+      {{ suggestion.status === 'acceptee' ? 'ACCÉTEZ' : (suggestion.status === 'refusee' ? 'RELISELL' : 'EN ATTENTE') }}
+    </span>
+  </div>
+  
+  <div class="detail-item">
+    <strong>Likes :</strong> {{ suggestion.nbLikes }}
+  </div>
+
+  <a routerLink="/suggestions" class="back-link">← Retour à la liste</a>
+</div>
+
+<ng-template #notFound>
+  <div class="not-found">
+    <p>Suggestion introuvable.</p>
+    <a routerLink="/suggestions">Retour à la liste</a>
+  </div>
+</ng-template>
