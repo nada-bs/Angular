@@ -1,0 +1,52 @@
+<div class="form-container">
+  <h2>Ajouter une suggestion</h2>
+  <form [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
+    <!-- Titre -->
+    <div class="form-group">
+      <label for="title">Titre :</label>
+      <input type="text" id="title" formControlName="title" class="form-control">
+      <div *ngIf="suggestionForm.get('title')?.invalid && suggestionForm.get('title')?.touched" class="error">
+        <small *ngIf="suggestionForm.get('title')?.errors?.['required']">Le titre est obligatoire.</small>
+        <small *ngIf="suggestionForm.get('title')?.errors?.['minlength']">Le titre doit contenir au moins 5 caractères.</small>
+        <small *ngIf="suggestionForm.get('title')?.errors?.['pattern']">Le titre doit commencer par une majuscule et ne contenir que des lettres.</small>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description :</label>
+      <textarea id="description" formControlName="description" class="form-control" rows="4"></textarea>
+      <div *ngIf="suggestionForm.get('description')?.invalid && suggestionForm.get('description')?.touched" class="error">
+        <small *ngIf="suggestionForm.get('description')?.errors?.['required']">La description est obligatoire.</small>
+        <small *ngIf="suggestionForm.get('description')?.errors?.['minlength']">La description doit contenir au moins 30 caractères.</small>
+      </div>
+    </div>
+
+    <!-- Catégorie -->
+    <div class="form-group">
+      <label for="category">Catégorie :</label>
+      <select id="category" formControlName="category" class="form-control">
+        <option value="">-- Sélectionnez une catégorie --</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+      <div *ngIf="suggestionForm.get('category')?.invalid && suggestionForm.get('category')?.touched" class="error">
+        <small>La catégorie est obligatoire.</small>
+      </div>
+    </div>
+
+    <!-- Date (lecture seule) -->
+    <div class="form-group">
+      <label for="date">Date :</label>
+      <input type="date" id="date" formControlName="date" class="form-control" readonly>
+    </div>
+
+    <!-- Statut (lecture seule) -->
+    <div class="form-group">
+      <label for="status">Statut :</label>
+      <input type="text" id="status" formControlName="status" class="form-control" readonly>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" [disabled]="suggestionForm.invalid" class="btn-submit">Soumettre</button>
+  </form>
+</div>

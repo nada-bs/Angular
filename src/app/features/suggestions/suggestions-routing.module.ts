@@ -3,14 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { SuggestionsComponent } from './suggestions.component';
 import { ListSuggestionComponent } from './suggestion-list/list-suggestion.component';
 import { SuggestionDetailsComponent } from './suggestion-details/suggestion-details.component';
+import { SuggestionFormComponent } from './suggestion-form/suggestion-form.component'; 
 
 const routes: Routes = [
   {
     path: '',
     component: SuggestionsComponent,
     children: [
-      { path: '', component: ListSuggestionComponent },        // page par défaut : liste
-      { path: ':id', component: SuggestionDetailsComponent }   // détail avec ID
+      { path: '', component: ListSuggestionComponent },  
+      { path: 'new', component: SuggestionFormComponent },
+      { path: ':id', component: SuggestionDetailsComponent }   
     ]
   }
 ];

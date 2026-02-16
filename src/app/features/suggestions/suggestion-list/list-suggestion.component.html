@@ -3,13 +3,17 @@
   <h2>I. liste des suggestions</h2>
   <h3>Rédacteur : une suggestion</h3>
 
-  <!-- Barre de recherche -->
   <div class="search-bar">
     <input 
       type="text" 
       [(ngModel)]="searchTerm"
       placeholder="Rechercher par titre ou catégorie"
     >
+  </div>
+
+  <!-- Bouton Ajouter une suggestion (placé ici, une seule fois) -->
+  <div class="add-button">
+    <button routerLink="/suggestions/new" class="btn-add">+ Ajouter une suggestion</button>
   </div>
 
   <!-- Liste des suggestions filtrées -->
@@ -30,8 +34,8 @@
       }"
     >
       <ng-container [ngSwitch]="suggestion.status">
-        <span *ngSwitchCase="'acceptee'">ACCÉTEZ</span>
-        <span *ngSwitchCase="'refusee'">RELISELL</span>
+        <span *ngSwitchCase="'acceptee'">ACCEPTE</span>
+        <span *ngSwitchCase="'refusee'">REFUSE</span>
         <span *ngSwitchDefault>EN ATTENTE</span>
       </ng-container>
     </div>
@@ -44,7 +48,6 @@
       <button (click)="addToFavorites(suggestion)" class="favorite-btn">
         Ajouter aux favoris
       </button>
-      <!-- Bouton Détails pour navigation -->
       <button [routerLink]="['/suggestions', suggestion.id]" class="details-btn">
         Détails
       </button>

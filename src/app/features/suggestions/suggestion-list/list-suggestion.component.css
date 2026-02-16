@@ -1,22 +1,24 @@
 .container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 20px;
+  max-width: 800px;        /* réduction pour centrer et rendre plus dense */
+  margin: 1rem auto;       /* moins de marge en haut */
+  padding: 0 15px;
 }
 
 h1, h2, h3 {
   text-align: center;
   color: #333;
+  margin: 0.2rem 0;        /* réduit les espacements verticaux */
+  line-height: 1.2;
 }
 
 .search-bar {
-  margin: 30px 0;
+  margin: 15px 0;           /* moins d'espace */
 }
 
 .search-bar input {
   width: 100%;
-  padding: 12px 20px;
-  font-size: 16px;
+  padding: 10px 16px;       /* padding légèrement réduit */
+  font-size: 15px;
   border: 2px solid #e0e0e0;
   border-radius: 50px;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -28,11 +30,38 @@ h1, h2, h3 {
   box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
 }
 
+/* Bouton Ajouter une suggestion */
+.add-button {
+  margin: 10px 0 15px;      /* espace vertical réduit */
+  text-align: right;
+}
+
+.btn-add {
+  background: #28a745;
+  color: white;
+  padding: 6px 14px;        /* plus petit */
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.btn-add:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* Cartes de suggestion */
 .suggestion {
   background: white;
   border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 15px;            /* réduction du padding interne */
+  margin-bottom: 12px;      /* moins d'espace entre les cartes */
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #f0f0f0;
@@ -44,15 +73,15 @@ h1, h2, h3 {
 }
 
 .suggestion h4 {
-  margin: 0 0 8px;
-  font-size: 1.4rem;
+  margin: 0 0 4px;          /* titre plus proche du reste */
+  font-size: 1.2rem;
   color: #2d3748;
 }
 
 .meta {
   font-size: 0.9rem;
   color: #718096;
-  margin-bottom: 10px;
+  margin-bottom: 5px;       /* réduit */
 }
 
 .category {
@@ -62,18 +91,21 @@ h1, h2, h3 {
 
 .description {
   color: #4a5568;
-  line-height: 1.6;
+  line-height: 1.5;         /* légèrement réduit */
+  margin: 5px 0;            /* ajout de marge verticale */
+  font-size: 0.95rem;
 }
 
+/* Badge de statut */
 .status-badge {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 10px;        /* plus petit */
   border-radius: 30px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;       /* plus petit */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin: 10px 0;
+  margin: 5px 0;            /* réduit */
   transition: transform 0.2s;
 }
 
@@ -87,14 +119,17 @@ h1, h2, h3 {
   color: #742a2a;
 }
 
+/* Boutons d'action (Like, Favoris, Détails) */
 .actions {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 8px;                 /* espace réduit */
+  margin-top: 8px;          /* moins d'espace avant */
+  flex-wrap: wrap;          /* pour éviter le débordement */
 }
 
-.like-btn, .favorite-btn {
-  padding: 8px 16px;
+.like-btn, .favorite-btn, .details-btn {
+  padding: 4px 10px;        /* taille réduite */
+  font-size: 0.85rem;
   border: none;
   border-radius: 30px;
   font-weight: 600;
@@ -102,7 +137,7 @@ h1, h2, h3 {
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;                 /* espace icône/texte réduit */
 }
 
 .like-btn {
@@ -125,24 +160,19 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
+.details-btn {
+  background: #4299e1;
+  color: white;
+}
+
+.details-btn:hover {
+  background: #3182ce;
+}
+
+/* Ligne de séparation */
 hr {
   border: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
-  margin: 20px 0;
-}
-
-.details-btn {
-  background: #4299e1;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-left: 10px;
-}
-.details-btn:hover {
-  background: #3182ce;
+  margin: 12px 0;           /* moins d'espace */
 }

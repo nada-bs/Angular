@@ -28,6 +28,16 @@
     <strong>Likes :</strong> {{ suggestion.nbLikes }}
   </div>
 
+  <!-- Boutons de navigation -->
+  <div class="navigation-buttons">
+    <button (click)="previous()" [disabled]="currentIndex <= 0" class="nav-btn prev">
+      ← Précédent
+    </button>
+    <button (click)="next()" [disabled]="currentIndex >= suggestions.length - 1" class="nav-btn next">
+      NEXT →
+    </button>
+  </div>
+
   <a routerLink="/suggestions" class="back-link">← Retour à la liste</a>
 </div>
 
