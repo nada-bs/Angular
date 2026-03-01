@@ -23,13 +23,10 @@ export class SuggestionDetailsComponent implements OnInit {
     private router: Router
   ) {}
 
-   ngOnInit(): void {
-    // Souscrire aux changements de paramètres
-    this.route.params.subscribe(params => {
-      const id = +params['id'];
-      this.currentIndex = this.suggestions.findIndex(s => s.id === id);
-      this.suggestion = this.suggestions[this.currentIndex];
-    });
+  ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.currentIndex = this.suggestions.findIndex(s => s.id === id);
+    this.suggestion = this.suggestions[this.currentIndex];
   }
 
   next(): void {
